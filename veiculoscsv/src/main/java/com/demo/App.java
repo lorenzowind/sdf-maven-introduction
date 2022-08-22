@@ -3,6 +3,7 @@ package com.demo;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.text.WordUtils;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -25,12 +26,16 @@ public class App {
 
                 System.out.println("Record No - " + csvRecord.getRecordNumber());
                 System.out.println("---------------");
-                System.out.println("Placa : " + placa);
-                System.out.println("Marca : " + marca);
-                System.out.println("Cor : " + cor);
-                System.out.println("Categoria : " + categoria);
+                System.out.println("Placa : " + capitalizeStr(placa));
+                System.out.println("Marca : " + capitalizeStr(marca));
+                System.out.println("Cor : " + capitalizeStr(cor));
+                System.out.println("Categoria : " + capitalizeStr(categoria));
                 System.out.println("---------------\n\n");
             }
         }
+    }
+
+    private static String capitalizeStr(String str) {
+        return WordUtils.capitalize(str);
     }
 }
